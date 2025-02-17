@@ -1,6 +1,24 @@
 date,amount,category,description
-23-07-2024,125.65,Income,Salary
-23-07-2024,1200.0,Expense,My expence
+05-03-2024,5000.0,Income,Freelance Work
+12-03-2024,300.0,Expense,Grocery Shopping
+18-04-2024,750.0,Expense,Electricity Bill
+25-05-2024,2000.0,Income,Bonus
+10-06-2024,150.0,Expense,Internet Bill
+22-06-2024,180.0,Expense,Restaurant
+05-07-2024,250.0,Expense,Gym Membership
+15-07-2024,9000.0,Income,Project Payment
+20-08-2024,600.0,Expense,Books Purchase
+01-09-2024,4500.0,Income,Part-time Job
+10-09-2024,120.0,Expense,Bus Fare
+30-09-2024,30000.0,Income,Stock Market Gain
+05-10-2024,800.0,Expense,Clothing
+18-10-2024,200.0,Expense,Movie Tickets
+12-11-2024,10000.0,Income,Consulting Fees
+20-12-2024,500.0,Expense,New Year Celebration
+01-01-2025,120000.0,Income,Investment Returns
+10-01-2025,2500.0,Expense,House Rent
+28-01-2025,350.0,Expense,Mobile Recharge
 14-02-2025,140000.0,Income,Incomeeee
-1-02-2025,160000.0,Income,Incomeeee
+01-02-2025,160000.0,Income,Incomeeee
 15-02-2025,400.0,Expense,Haircutt
+

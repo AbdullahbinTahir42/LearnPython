@@ -2,6 +2,7 @@ import pandas as pd
 import csv
 from datetime import datetime
 from data_entry import get_amount, get_category, get_description, get_date
+import matplotlib.pyplot as plt
 
 class CSV:
     CSV_FILES = "finanace_data.csv"
@@ -53,7 +54,8 @@ class CSV:
             print(f"Total Income: {total_income:.2f} PKR")
             print(f"Total Expense: {total_expense:.2f} PKR")
             print(f"Net Saving: {(total_income - total_expense):.2f} PKR")
-
+            return filtered_df
+            
 def add():
     CSV.initilize_csv()
     date = get_date("Enter date of the transaction (dd-mm-yyyy) or enter for today's date: ", allow_default=True)
@@ -62,6 +64,22 @@ def add():
     description = get_description()
     CSV.add_entry(date, amount, category, description)
 
+
+def plot_transactions(df):
+    df.set_index("date",inplace = True)
+    income_df = df[df["category"] == "Income"].resample("D").sum().reindex(df.index, fill_value = 0)
+    expence_df = df[df["category"] == "Expence"].resample("D").sum().reindex(df.index, fill_value = 0)
+    
+    plt.figure(figsize=(10,5))
+    plt.plot(income_df.index, income_df["amount"], label= "Income", color = "g")
+    plt.plot(expence_df.index, expence_df["amount"], label= "Expence", color = "r") 
+    plt.xlabel("Date")
+    plt.ylabel("Amount")
+    plt.title("Income and Expence over time")
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+    
 def main():
     
     while True:
@@ -75,6 +93,12 @@ def main():
             start_date = get_date("Enter start date (dd-mm-yyyy) :")
             end_date = get_date("Enter end date (dd-mm-yyyy) :")
             df = CSV.get_transactions(start_date, end_date)
+            if df is None:
+                print("Error: No data returned. Check CSV.get_transactions function.")
+            else:
+                if input("Do you want to see a plot (y/n) : ").lower() == 'y':
+                    plot_transactions(df)
+
         elif choice == '3':
             print("Exiting....")
             break
